@@ -10,6 +10,7 @@ RUN dep ensure -v -vendor-only
 
 # Add source and compile
 ADD . /go/src/github.com/horis233/kubelet-server-csr-approver/
+ARG ARCH=amd64
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o csr-approver cmd/manager/main.go
 
 
