@@ -22,13 +22,33 @@ spec:
       containers:
         - name: csr-approver
           image: docker.io/jnummelin/csr-approver:latest
-          imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
               value: ""
+              resources:
+                requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+              resources:
+                requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
             - name: OPERATOR_NAME
               value: "csr-approver"
+              resources:
+                requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
