@@ -19,7 +19,8 @@ workspace:
     repo: quay.io/horis233/kubelet-server-csr-approver-amd64
     dockerfile: Dockerfile
     auto_tag: true
-
+    when:
+      branches: ['master', 'refs/tags/*']
   docker-arm:
     group: image
     registry: quay.io
@@ -30,3 +31,5 @@ workspace:
     build_args:
       - ARCH=arm64
     auto_tag: true
+    when:
+      branches: ['master', 'refs/tags/*']
