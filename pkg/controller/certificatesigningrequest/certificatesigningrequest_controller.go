@@ -116,6 +116,9 @@ func (r *ReconcileCertificateSigningRequest) Reconcile(request reconcile.Request
 	tried := []string{}
 
 	for _, recognizer := range recognizers() {
+
+		tried = append(tried, recognizer.permission.Subresource)
+
 		if !recognizer.recognize(csr, x509cr) {
 			continue
 		}
